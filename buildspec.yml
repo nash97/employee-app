@@ -6,12 +6,10 @@ phases:
       docker: 20
   pre_build:
     commands:
-      - mvn clean install
-      - mvn build
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --no-include-email --region ap-south-1)
-      - REPOSITORY_URI=ADD_YOUR_URL_HERE
+      - REPOSITORY_URI=486036348167.dkr.ecr.ap-south-1.amazonaws.com/employee-app
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
