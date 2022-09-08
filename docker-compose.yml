@@ -1,7 +1,7 @@
 version: "3"
 services: 
-  employee-latest-jar:
-    image: employee
+  employee-apps:
+    image: employee-app
     ports:
      - 80:8080
     extra_hosts:
